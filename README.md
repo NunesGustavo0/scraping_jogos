@@ -26,7 +26,7 @@ scraping_jogos/
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Python** — Linguagem principal (93.5% do projeto)
+- **Python** — Linguagem principal
 - **Docker / Docker Compose** — Containerização e orquestração
 - **Crontab** — Agendamento automático de execuções
 - **Bibliotecas Python** — Definidas em `requirements.txt`
