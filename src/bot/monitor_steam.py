@@ -12,14 +12,28 @@ async def raspar_steam(str_busca, max_result):
     resultados = []
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu'
+            ]
+        )
+        context = await browser.new_context(
+            user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                    '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            locale='pt-BR',
+            timezone_id='America/Manaus',
+        )
+        page = await context.new_page()
 
         log("LOAD", 'Acessando url Steam...')
         await page.goto(url, wait_until='domcontentloaded',timeout=30000)
 
         await pesquisar(page, 'Buscar na loja', str_busca)
-        await page.wait_for_selector(SELETOR_ITEM, timeout=3000)
+        await page.wait_for_selector(SELETOR_ITEM, timeout=30000)
 
         itens = await page.locator(SELETOR_ITEM).all()
         itens = itens[:max_result]
