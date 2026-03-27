@@ -1,6 +1,4 @@
 import asyncio
-import pandas as pd
-from playwright.async_api import async_playwright
 from src.bot.monitor_steam import raspar_steam
 from src.bot.monitor_nuuvem import raspar_nuuvem
 from src.bot.bot_google_sheets import conectar_planilha, salvar_planilha

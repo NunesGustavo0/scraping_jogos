@@ -1,3 +1,5 @@
 playwright
 asyncio
 load_dotenv
+gspread
+google-auth
