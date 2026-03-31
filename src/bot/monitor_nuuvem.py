@@ -1,7 +1,6 @@
 from playwright.async_api import async_playwright
 from ..util import pesquisar, log, normalizar_preco
 
-DELAY = 0.5
 SELETOR_ITEM = '.grid-col-lg-3'
 SELETOR_TITLE = '.game-card__product-name'
 SELETOR_DATA = '.responsive_search_name_combined .search_released'

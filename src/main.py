@@ -10,10 +10,11 @@ PRECO_LIMITE = 50.00
 
 async def main():
     log('LOAD', 'Realizando raspagem Steam...')
-    resultados_steam = await raspar_steam(STRING_BUSCA, MAX_RESULT)
+    task_steam = raspar_steam(STRING_BUSCA, MAX_RESULT)
     log('LOAD', 'Realizando raspagem Nuuvem...')
-    resultados_nuuvem = await raspar_nuuvem(STRING_BUSCA, MAX_RESULT)
+    task_nuuvem = raspar_nuuvem(STRING_BUSCA, MAX_RESULT)
 
+    resultados_steam, resultados_nuuvem = await asyncio.gather(task_nuuvem, task_steam)
     resultados = resultados_steam + resultados_nuuvem
     # Conectar planilha google
     log('LOAD', "Conectando com planilha...")
