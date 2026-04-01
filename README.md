@@ -27,7 +27,7 @@ scraping_jogos/
 ## 🚀 Tecnologias Utilizadas
 
 - **Python** — Linguagem principal
-- **Docker / Docker Compose** — Containerização e sequenciação
+- **Docker / Docker Compose** — Containerização
 - **Crontab** — Agendamento automático de execuções
 - **Bibliotecas Python** — Definidas em `requirements.txt`
 
